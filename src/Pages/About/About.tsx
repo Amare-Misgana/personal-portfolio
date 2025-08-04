@@ -1,9 +1,10 @@
 import styles from "./About.module.css";
+import Nav from "../../Components/Nav/Nav";
 
 const About = () => {
   return (
     <div className={styles.AboutContainer}>
-      <h1>About</h1>
+      <Nav currentPage="about" />
     </div>
   );
 };

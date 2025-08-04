@@ -1,3 +1,4 @@
+// DeveloperContext.tsx
 import { createContext } from "react";
 import type { ReactNode } from "react";
 
@@ -9,6 +10,12 @@ import {
   SiDjango,
   SiGit,
   SiPostman,
+  SiHtml5,
+  SiCss3,
+  SiVite,
+  SiRedis,
+  SiSqlite,
+  SiPostgresql,
 } from "react-icons/si";
 
 type TechItem = {
@@ -16,22 +23,26 @@ type TechItem = {
   icon: ReactNode;
 };
 
-type DeveloperContextType = {
-  name: "Amare Misgana";
-  age: 18;
-  email: "codeamare@gmail.com";
-  educationLevel: "High School";
-  city: "Shashemene";
-  country: "Ethiopia";
-  school: "Comboni Senior Secondary School";
+export type DeveloperContextType = {
+  name: string;
+  age: number;
+  email: string;
+  educationLevel: string;
+  city: string;
+  country: string;
+  school: string;
   languages: TechItem[];
   frameworks: TechItem[];
   tools: TechItem[];
+  frontend_framework: ReactNode;
+  backend_framework: ReactNode;
+  frontend_icons: ReactNode[];
+  backend_icons: ReactNode[];
   educationList: string[];
   resumeSummary: string;
 };
 
-export const DeveloperContext = createContext<DeveloperContextType>({
+export const developerData: DeveloperContextType = {
   name: "Amare Misgana",
   age: 18,
   email: "codeamare@gmail.com",
@@ -47,8 +58,11 @@ export const DeveloperContext = createContext<DeveloperContextType>({
   frameworks: [
     { name: "React", icon: <SiReact /> },
     { name: "Django", icon: <SiDjango /> },
-    { name: "Django Rest Framework", icon: <SiDjango /> },
   ],
+  frontend_framework: <SiReact className="react" />,
+  backend_framework: <SiDjango className="django" />,
+  frontend_icons: [<SiJavascript />, <SiHtml5 />, <SiCss3 />, <SiVite />],
+  backend_icons: [<SiRedis />, <SiSqlite />, <SiPython />, <SiPostgresql />],
   tools: [
     { name: "Git", icon: <SiGit /> },
     { name: "Postman", icon: <SiPostman /> },
@@ -59,4 +73,7 @@ export const DeveloperContext = createContext<DeveloperContextType>({
     "Strong background in Physics and Mathematics with a passion for backend development and problem-solving.",
   ],
   resumeSummary: `High school student and full-stack developer focused on building modern backend-powered applications using Django and React.`,
-});
+};
+
+export const DeveloperContext =
+  createContext<DeveloperContextType>(developerData);

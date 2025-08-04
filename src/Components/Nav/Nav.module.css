@@ -1,0 +1,52 @@
+.NavContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.logo {
+  width: 2em;
+  cursor: pointer;
+}
+
+.NavContainer ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+}
+
+.NavContainer ul li {
+  color: var(--text-color);
+  font-size: 1.2em;
+  position: relative;
+  cursor: pointer;
+}
+
+.NavContainer ul li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 5px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--text-color);
+  transition: width 0.7s ease;
+}
+
+.NavContainer ul li.currentPage::after {
+  width: 100%;
+}
+
+.NavContainer ul li:hover::after {
+  width: 100%;
+}
+
+.NavContainer ul li:active {
+  color: var(--text-color);
+}
