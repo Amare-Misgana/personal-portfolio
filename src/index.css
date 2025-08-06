@@ -7,7 +7,7 @@
 }
 :root {
   /* Base Dark Theme */
-  --bg-color: #121212;
+  --bg-color: #1b1b1b;
   --surface-color: #1e1e1e;
   --text-color: #e0e0e0;
   --muted-text: #cecece;
@@ -48,8 +48,8 @@
   --radius-lg: 12px;
 
   /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-slow: 0.7s ease;
+  --transition-fast: 0.2s;
+  --transition-slow: 0.7s;
 
   /* Status Colors */
   --success: #35b66a;

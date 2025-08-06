@@ -4,9 +4,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
-  --animation-time: 6.2s;
+  --animation-time: var(--transition-slow);
+  --rotation-time: 6.2s;
 }
 
 .HomeContainer.frontend {
@@ -28,6 +29,7 @@
 }
 
 .HomeContainer .hero h1 {
+  text-align: center;
   color: var(--text-color);
   font-size: 4em;
   font-weight: 300;
@@ -65,6 +67,7 @@
   font-weight: 400;
   font-family: "merriweather", serif;
   border-radius: 0.2em;
+  transition: color var(--transition-slow) ease;
 }
 
 .hero.frontendMode .cta button {
@@ -73,6 +76,38 @@
 
 .hero.backendMode .cta button {
   color: var(--django-primary);
+}
+
+.hero .cta button:hover {
+  cursor: pointer;
+  background-color: var(--muted-text);
+}
+
+.hero .names span {
+  position: relative;
+  color: var(--text-color);
+}
+
+.hero .names span::after {
+  content: "";
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: top right;
+  left: 0;
+  bottom: -4px;
+  background-color: var(--text-color);
+  transition: transform 1s ease;
+}
+
+.hero.backendMode .names span.django::after {
+  transform-origin: top left;
+  transform: scaleX(1);
+}
+.hero.frontendMode .names span.react::after {
+  transform-origin: top left;
+  transform: scaleX(1);
 }
 
 .iconCircle {
@@ -88,7 +123,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  bottom: 0;
   z-index: 1;
 }
 
@@ -103,7 +139,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1em;
-  animation: rotate calc(var(--animation-time) * 2) ease infinite;
+  animation: rotate calc((var(--transition-slow) + 5.4s) * 2) ease infinite;
   transform-origin: center center;
 }
 
@@ -134,7 +170,7 @@
 
 .django {
   color: var(--django-primary);
-  transform: translateX(-10px) rotate(180deg);
+  transform: translateX(5px) rotate(180deg);
 }
 .react {
   color: var(--ts-primary);
@@ -151,73 +187,118 @@
 
 .backgroundIconsContainer {
   position: fixed;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
+  display: grid;
+  place-items: center;
 }
 
-.backgroundIconsContainer .frontendIcons {
+.frontendIcons,
+.backendIcons {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   place-items: center;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
+  position: absolute;
   inset: 0;
 }
 
-.backgroundIconsContainer .icons {
-  font-size: clamp(100px, 120px, 150px);
-}
-
 .backgroundIconsContainer span {
+  position: relative;
+  display: inline-block;
+  transform-origin: center center;
+  font-size: clamp(100px, 140px, 150px);
   color: var(--bg-icons);
-  /* position: absolute; */
 }
 
-.frontendIcons span:nth-child(1)
-/* ,
-.backendIcons span:nth-child(1) */ {
-  /* position: relative; */
-  display: inline-block;
-  transform: rotate(20deg);
-  animation: iconsInAndOut1 calc(var(--animation-time) * 2) ease infinite;
-}
-.frontendIcons span:nth-child(2)
-/* ,
-.backendIcons span:nth-child(2) */ {
-  display: inline-block;
-  transform: rotate(10deg);
-}
-.frontendIcons span:nth-child(3)
-/* ,
-.backendIcons span:nth-child(3) */ {
-  display: inline-block;
-  transform: rotate(-20deg);
-}
-.frontendIcons span:nth-child(4)
-/* ,
-.backendIcons span:nth-child(4) */ {
-  display: inline-block;
-  transform: rotate(-15deg);
+:root {
+  --cycle: 12s;
 }
 
-@keyframes iconsInAndOut1 {
+@keyframes slideUpHoldDrop {
   0% {
-    transform: rotate(20deg) translate(1em 100vh);
+    top: 120%;
+    opacity: 0;
   }
-  45% {
-    transform: rotate(20deg) translate(1em 100vh);
+  8.33% {
+    top: 0;
+    opacity: 1;
+  }
+  41.67% {
+    top: 0;
+    opacity: 1;
   }
   50% {
-    transform: rotate(30deg) translate(1em 100vh);
-  }
-  95% {
-    transform: rotate(30deg) translate(1em 100vh);
+    top: 120%;
+    opacity: 0;
   }
   100% {
-    transform: rotate(20deg) translate(1em 100vh);
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+.frontendIcons span {
+  animation: slideUpHoldDrop var(--cycle) ease infinite;
+}
+
+.frontendIcons span:nth-child(1) {
+  transform: rotate(20deg);
+  animation-delay: 0.2s;
+}
+.frontendIcons span:nth-child(2) {
+  transform: rotate(-20deg);
+  animation-delay: 0.1s;
+}
+.frontendIcons span:nth-child(3) {
+  transform: rotate(20deg);
+  animation-delay: 0.4s;
+}
+.frontendIcons span:nth-child(1) {
+  transform: rotate(20deg);
+}
+
+.backendIcons span:nth-child(1) {
+  transform: rotate(20deg);
+  animation-delay: 6.2s;
+}
+.backendIcons span:nth-child(2) {
+  transform: rotate(-20deg);
+  animation-delay: 6.1s;
+}
+.backendIcons span:nth-child(3) {
+  transform: rotate(20deg);
+  animation-delay: 6.4s;
+}
+.backendIcons span:nth-child(4) {
+  transform: rotate(20deg);
+  animation-delay: 6s;
+}
+
+.backendIcons span {
+  top: 150%;
+  animation: slideUpHoldDrop var(--cycle) ease infinite;
+}
+
+@media (max-width: 1000px) {
+  .HomeContainer .hero h1 {
+    font-size: 3em;
+  }
+  .HomeContainer .hero h2 {
+    font-size: 1.4em;
+    font-weight: 200;
+  }
+  .backgroundIconsContainer span {
+    font-size: 100px;
+  }
+}
+@media (max-width: 500px) {
+  .HomeContainer .hero h1 {
+    font-size: 2em;
+  }
+  .HomeContainer .hero h2 {
+    font-size: 1.1em;
+    font-weight: 200;
+  }
+  .backgroundIconsContainer span {
+    font-size: 70px;
   }
 }

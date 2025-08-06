@@ -44,7 +44,8 @@ const Home = ({ interval = 6000 }) => {
         <h2>
           I craft full-stack web apps with
           <div className={styles.names}>
-            <span>Django</span> & <span>React</span>
+            <span className={styles.django}>Django</span> &{" "}
+            <span className={styles.react}>React</span>
           </div>
         </h2>
         <div className={styles.cta}>

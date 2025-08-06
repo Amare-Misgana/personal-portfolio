@@ -13,9 +13,9 @@ import {
   SiHtml5,
   SiCss3,
   SiVite,
-  SiRedis,
   SiSqlite,
   SiPostgresql,
+  SiDocker,
 } from "react-icons/si";
 
 type TechItem = {
@@ -62,7 +62,7 @@ export const developerData: DeveloperContextType = {
   frontend_framework: <SiReact className="react" />,
   backend_framework: <SiDjango className="django" />,
   frontend_icons: [<SiJavascript />, <SiHtml5 />, <SiCss3 />, <SiVite />],
-  backend_icons: [<SiRedis />, <SiSqlite />, <SiPython />, <SiPostgresql />],
+  backend_icons: [<SiDocker />, <SiSqlite />, <SiPython />, <SiPostgresql />],
   tools: [
     { name: "Git", icon: <SiGit /> },
     { name: "Postman", icon: <SiPostman /> },

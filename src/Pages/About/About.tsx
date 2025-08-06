@@ -5,6 +5,9 @@ const About = () => {
   return (
     <div className={styles.AboutContainer}>
       <Nav currentPage="about" />
+      <div className={styles.header}>
+        <h1>Welcome</h1>
+      </div>
     </div>
   );
 };

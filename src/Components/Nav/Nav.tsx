@@ -1,12 +1,19 @@
 import styles from "./Nav.module.css";
 import Logo from "../../assets/logos/whitemode.svg";
 import { useNavigate } from "react-router-dom";
+import { HiMenu, HiX } from "react-icons/hi";
+import { useState } from "react";
 
 const Nav = ({ currentPage = "home" }) => {
   const navigate = useNavigate();
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
   return (
-    <div className={styles.NavContainer}>
+    <div
+      className={`${styles.NavContainer} ${
+        isSideBarOpen ? styles.sideBarOpen : ""
+      }`}
+    >
       <img
         src={Logo}
         alt="Amare's personal portfolio logo."
@@ -14,6 +21,13 @@ const Nav = ({ currentPage = "home" }) => {
         onClick={() => navigate("/")}
       />
       <ul>
+        <div className={styles.closeButton}>
+          <HiX
+            onClick={() => {
+              setIsSideBarOpen(false);
+            }}
+          />
+        </div>
         <li
           className={currentPage == "home" ? styles.currentPage : ""}
           onClick={() => navigate("/")}
@@ -39,6 +53,16 @@ const Nav = ({ currentPage = "home" }) => {
           Resume
         </li>
       </ul>
+      <div className={styles.menuButton}>
+        <HiMenu
+          onClick={() => {
+            setIsSideBarOpen(true);
+          }}
+        />
+      </div>
+      <div className={styles.overlay} onClick={()=>{
+        setIsSideBarOpen(false)
+      }}></div>
     </div>
   );
 };
