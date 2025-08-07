@@ -2,54 +2,26 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
   height: 100vh;
   width: 100%;
   position: relative;
   text-align: center;
   padding: 4rem 0;
-  background: linear-gradient(
-    90deg,
-    rgb(59, 15, 59) 0%,
-    #2c2c2c 45%,
-    #2c2c2c 55%,
-    rgb(22, 32, 63) 100%
-  );
+  background-color: rgb(34, 34, 34);
 
   color: white;
   overflow: hidden;
 }
-.AboutContainer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.08) 0 1px,
-      transparent 1px 50px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.08) 0 1px,
-      transparent 1px 50px
-    );
-  /* Brighter in the center, fades toward edges */
-  mask-image: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  z-index: 0;
+
+.pageTitle {
+  margin-top: 1em;
+  font-size: 6em;
+  font-family: "merriweather", sans-serif;
 }
 
-.AboutContainer h1 {
-  position: relative;
-  z-index: 1;
+@media (max-width: 500px) {
+  .pageTitle {
+    margin-top: 0.6em;
+    font-size: 4em;
+  }
 }
