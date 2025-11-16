@@ -2,21 +2,64 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   text-align: center;
   padding: 4rem 0;
   background-color: rgb(34, 34, 34);
-
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.header {
+  margin-top: 5em;
 }
 
 .pageTitle {
-  margin-top: 1em;
   font-size: 6em;
   font-family: "merriweather", sans-serif;
+}
+.content {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.mainContent {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  padding: 0 1.8em;
+  align-items: center;
+}
+
+.aboutMe {
+  width: 70vw;
+}
+
+.mainContent h2 {
+  margin: 0.5em;
+  font-size: 1.6em;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* background-color: blue; */
+  align-content: center;
+  gap: 1em;
+}
+
+.techStack h3 {
+  margin-bottom: 0.4em;
 }
 
 @media (max-width: 500px) {

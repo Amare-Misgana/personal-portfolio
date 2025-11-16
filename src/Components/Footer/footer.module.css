@@ -1,0 +1,69 @@
+.footer {
+  background: var(--surface-color);
+  padding: 2.5em 1.5em;
+  margin-top: 4em;
+  border-top: 1px solid #2a2a2a;
+  color: var(--text-medium);
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2em;
+}
+
+.left h3 {
+  color: var(--text-high);
+  font-size: 1.6rem;
+  margin-bottom: 0.3em;
+}
+
+.left p {
+  color: var(--text-low);
+  font-size: 0.95rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+
+.links a {
+  color: var(--text-medium);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.links a:hover {
+  color: var(--text-high);
+}
+
+.socials {
+  display: flex;
+  gap: 1.2em;
+}
+
+.socials a {
+  color: var(--text-medium);
+  font-size: 1.3rem;
+  transition: 0.2s ease;
+}
+
+.socials a:hover {
+  color: var(--text-high);
+  transform: translateY(-2px);
+}
+
+.bottom {
+  margin-top: 2em;
+  text-align: center;
+  color: var(--text-low);
+  font-size: 0.85rem;
+}

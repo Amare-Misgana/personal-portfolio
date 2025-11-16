@@ -9,17 +9,8 @@ const Nav = ({ currentPage = "home" }) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
   return (
-    <div
-      className={`${styles.NavContainer} ${
-        isSideBarOpen ? styles.sideBarOpen : ""
-      }`}
-    >
-      <img
-        src={Logo}
-        alt="Amare's personal portfolio logo."
-        className={styles.logo}
-        onClick={() => navigate("/")}
-      />
+    <div className={`${styles.NavContainer} ${isSideBarOpen ? styles.sideBarOpen : ""} ${currentPage == "home" ? "" : styles.notHome}`}>
+      <img src={Logo} alt="Amare's personal portfolio logo." className={styles.logo} onClick={() => navigate("/")} />
       <ul>
         <div className={styles.closeButton}>
           <HiX
@@ -28,28 +19,16 @@ const Nav = ({ currentPage = "home" }) => {
             }}
           />
         </div>
-        <li
-          className={currentPage == "home" ? styles.currentPage : ""}
-          onClick={() => navigate("/")}
-        >
+        <li className={currentPage == "home" ? styles.currentPage : ""} onClick={() => navigate("/")}>
           Home
         </li>
-        <li
-          className={currentPage == "about" ? styles.currentPage : ""}
-          onClick={() => navigate("/about")}
-        >
+        <li className={currentPage == "about" ? styles.currentPage : ""} onClick={() => navigate("/about")}>
           About
         </li>
-        <li
-          className={currentPage == "projects" ? styles.currentPage : ""}
-          onClick={() => navigate("/projects")}
-        >
+        <li className={currentPage == "projects" ? styles.currentPage : ""} onClick={() => navigate("/projects")}>
           Projects
         </li>
-        <li
-          className={currentPage == "resume" ? styles.currentPage : ""}
-          onClick={() => navigate("/resume")}
-        >
+        <li className={currentPage == "resume" ? styles.currentPage : ""} onClick={() => navigate("/resume")}>
           Resume
         </li>
       </ul>
@@ -60,9 +39,12 @@ const Nav = ({ currentPage = "home" }) => {
           }}
         />
       </div>
-      <div className={styles.overlay} onClick={()=>{
-        setIsSideBarOpen(false)
-      }}></div>
+      <div
+        className={styles.overlay}
+        onClick={() => {
+          setIsSideBarOpen(false);
+        }}
+      ></div>
     </div>
   );
 };

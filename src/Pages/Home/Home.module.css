@@ -7,7 +7,7 @@
   justify-content: center;
   position: relative;
   --animation-time: var(--transition-slow);
-  --rotation-time: 6.2s;
+  --rotation-time: 6s;
 }
 
 .HomeContainer.frontend {
@@ -139,7 +139,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1em;
-  animation: rotate calc((var(--transition-slow) + 5.4s) * 2) ease infinite;
+  animation: rotate calc((var(--animation-time) + 6s) * 1.9) ease infinite;
   transform-origin: center center;
 }
 

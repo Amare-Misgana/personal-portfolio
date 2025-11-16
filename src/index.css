@@ -8,6 +8,7 @@
 :root {
   /* Base Dark Theme */
   --bg-color: #1b1b1b;
+  --blured-bg-color: #1b1b1bbe;
   --surface-color: #1e1e1e;
   --text-color: #e0e0e0;
   --muted-text: #cecece;

@@ -1,0 +1,97 @@
+.card {
+  background: var(--surface-color);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px #00000075;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.content {
+  padding: 1.4em;
+}
+
+.title {
+  color: var(--text-high);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.4em 0;
+}
+
+.description {
+  color: var(--text-medium);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+
+.techRow {
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  padding-bottom: 0.5em;
+  margin-bottom: 1.2em;
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}
+
+.techRow::-webkit-scrollbar {
+  height: 6px;
+}
+
+.techRow::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  min-width: 60px;
+}
+
+.icon {
+  font-size: 1.7rem;
+  color: var(--bg-icons);
+  transition: color 0.2s ease;
+}
+
+.techItem:hover .icon {
+  color: var(--text-high);
+}
+
+.label {
+  font-size: 0.75rem;
+  color: var(--muted-text);
+  margin-top: 0.25em;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  font-size: 0.9rem;
+  color: var(--text-high);
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover {
+  background: #2e2e2e;
+  border-color: #5a5a5a;
+}
