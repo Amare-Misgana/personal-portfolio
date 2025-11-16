@@ -1,5 +1,7 @@
 import { createContext, useContext } from "react";
 import { SiReact, SiDjango, SiJavascript, SiHtml5, SiCss3 } from "react-icons/si";
+import CsssTemplate from "../assets/templates/csss.png"
+import BlogNetTemplate from "../assets/templates/blognet.png"
 
 const ProjectsContext = createContext([]);
 
@@ -9,7 +11,7 @@ export const ProjectsProvider = ({ children }) => {
             id: 1,
             title: "BlogNet",
             description: "A full-stack blogging platform built with Django backend and React frontend, featuring user authentication and CRUD operations.",
-            image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+            image: CsssTemplate,
             techStack: [
                 { icon: <SiReact />, iconLabel: "React", link: "https://react.dev" },
                 { icon: <SiDjango />, iconLabel: "Django", link: "https://www.djangoproject.com" },
@@ -21,7 +23,7 @@ export const ProjectsProvider = ({ children }) => {
             id: 2,
             title: "Comboni Fullstack Website",
             description: "A school project website built with full-stack architecture using Django and React for a smooth UI/UX experience.",
-            image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+            image: BlogNetTemplate,
             techStack: [
                 { icon: <SiReact />, iconLabel: "React", link: "https://react.dev" },
                 { icon: <SiDjango />, iconLabel: "Django", link: "https://www.djangoproject.com" },
