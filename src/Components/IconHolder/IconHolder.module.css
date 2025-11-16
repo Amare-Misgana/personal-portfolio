@@ -11,6 +11,8 @@
   overflow: hidden;
   transition: transform var(--transition-fast) ease;
   text-decoration: none;
+  min-width: 64px; /* ensures tappable size */
+  flex: 0 0 auto;
   color: var(--text-color);
   margin: 0.3em 0;
 }

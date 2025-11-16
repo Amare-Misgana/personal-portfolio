@@ -1,4 +1,9 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
   background: var(--surface-color);
   border: 1px solid #2a2a2a;
   border-radius: 12px;
@@ -7,20 +12,23 @@
   cursor: pointer;
 }
 
-.card:hover {
+.card:hover,
+.card:focus-within {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px #00000075;
 }
 
 .image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
-  border-bottom: 1px solid #2a2a2a;
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   padding: 1.4em;
+  flex: 1;
 }
 
 .title {
@@ -39,45 +47,62 @@
 
 .techRow {
   display: flex;
-  gap: 1em;
+  gap: 1rem;
   overflow-x: auto;
-  padding-bottom: 0.5em;
-  margin-bottom: 1.2em;
-  scrollbar-width: thin;
-  scrollbar-color: #555 transparent;
+  padding: 0.4rem 0;
+  margin-bottom: 1.2rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  box-shadow: inset 28px 0 32px -28px rgba(26, 26, 26, 0.85), inset -28px 0 32px -28px rgba(26, 26, 26, 0.85);
 }
 
 .techRow::-webkit-scrollbar {
-  height: 6px;
-}
-
-.techRow::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 10px;
+  display: none;
 }
 
 .techItem {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  flex: 0 0 auto;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
   text-decoration: none;
-  min-width: 60px;
+  color: inherit;
 }
 
 .icon {
+  display: block;
   font-size: 1.7rem;
   color: var(--bg-icons);
-  transition: color 0.2s ease;
+  transition: color 0.12s ease, transform 0.12s ease;
 }
 
-.techItem:hover .icon {
+.techItem:hover .icon,
+.techItem:focus .icon,
+.techItem:focus-visible .icon {
   color: var(--text-high);
+  transform: translateY(-3px);
 }
 
 .label {
+  margin-top: 0.25em;
   font-size: 0.75rem;
   color: var(--muted-text);
-  margin-top: 0.25em;
+  text-align: center;
+}
+
+.techItem:focus,
+.techItem:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(120, 120, 255, 0.08);
+  border-radius: 6px;
 }
 
 .button {
@@ -89,9 +114,36 @@
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease;
+  text-align: center;
+  align-self: flex-start;
 }
 
 .button:hover {
   background: #2e2e2e;
   border-color: #5a5a5a;
+}
+
+@media (max-width: 900px) {
+  .image {
+    height: 220px;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .image {
+    height: 180px;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+  .description {
+    font-size: 0.92rem;
+  }
+  .techItem {
+    min-width: 56px;
+    padding: 6px;
+  }
 }

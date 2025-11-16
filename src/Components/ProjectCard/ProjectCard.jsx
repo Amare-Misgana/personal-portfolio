@@ -1,7 +1,8 @@
 import styles from "./ProjectCard.module.css";
 import { Link } from "react-router-dom";
+import IconHolder from "../IconHolder/IconHolder";
 
-export default function ProjectCard({ image, title, description, techStack = [], link }) {
+export default function ProjectCard({ image, title, description, techStack = [], gitLink }) {
     return (
         <div className={styles.card}>
             <img src={image} alt={title} className={styles.image} />
@@ -11,24 +12,23 @@ export default function ProjectCard({ image, title, description, techStack = [],
                 <p className={styles.description}>{description}</p>
 
                 <div className={styles.techRow}>
+                    <div className={styles.before}></div>
                     {techStack.map((item, idx) => (
-                        <a
+                        <IconHolder
                             key={idx}
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.techItem}
-                        >
-                            <span className={styles.icon}>{item.icon}</span>
-                            <span className={styles.label}>{item.iconLabel}</span>
-                        </a>
+                            icon={item.icon}
+                            iconLabel={item.iconLabel}
+                            link={item.link}
+                        />
                     ))}
+                    <div className={styles.after}></div>
                 </div>
 
-                {link && (
-                    <Link to={link} className={styles.button}>
+                {gitLink && (
+                    <a href={gitLink} target="_blank" rel="noopener noreferrer" className={styles.button}>
                         View Project
-                    </Link>
+                    </a>
+
                 )}
             </div>
         </div>
