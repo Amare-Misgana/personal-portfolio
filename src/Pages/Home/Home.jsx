@@ -39,7 +39,7 @@ const Home = ({ interval = 6000 }) => {
           Hi, I'm <span>Amare Misgana</span>
         </h1>
         <h2>
-          I craft full-stack web apps with{" "}
+          I craft full-stack web apps with{" "}<br/>
           <span className={styles.names}>
             <span className={styles.django}>Django</span> &{" "}
             <span className={styles.react}>React</span>
